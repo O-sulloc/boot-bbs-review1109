@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      force-response: true
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  profiles:
+    include:
+    - db
