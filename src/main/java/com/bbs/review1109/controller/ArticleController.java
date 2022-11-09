@@ -70,14 +70,28 @@ public class ArticleController {
     }
 
     //postMapping 말고 Put으로 (Rest api)
-    //오류나서 Post로 함
+    // pot 요청을 html에서 지원을 안함. PutMapping 못씀
     @PostMapping("/update/{id}")
     public String setUpdate(@PathVariable Long id, ArticleDTO articleDTO, Model model) {
         log.info("title:{} contents:{}", articleDTO.getTitle(), articleDTO.getContents());
         Article article = articleRepository.save(articleDTO.toEntity());
-        model.addAttribute("article",article);
+        model.addAttribute("article", article);
         return String.format("redirect:/articles/getOne/%d", article.getId());
     }
 
 
+    @GetMapping("/delete/{id}")
+    // delete 요청을 html에서 지원을 안함 DeleteMapping 못씀
+    // id는 url에서 가져오는 것.
+    public String setDelete(@PathVariable Long id) {
+        log.info("delete request");
+
+        Article deleteArticleEntity = articleRepository.findById(id).orElse(null);
+
+        if (deleteArticleEntity != null){
+            articleRepository.delete(deleteArticleEntity);
+        }
+
+        return "redirect:/articles/getList";
+    }
 }
