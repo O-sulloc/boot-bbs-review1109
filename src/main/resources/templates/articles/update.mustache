@@ -1,0 +1,24 @@
+{{>layouts/header}}
+
+{{#article}}
+    <form action="/articles/update/{{id}}" method="post">
+        <div class="container align-middle">
+            <h1>Update</h1>
+            <div class="mb-3">
+                <input type="hidden" name="id" value="{{id}}">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" value="{{title}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contents</label>
+                <textarea rows="3" class="form-control" name="contents">{{contents}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+{{/article}}
+
+<a href="/articles/getList">
+    <button type="button" class="btn btn-success">Go List</button>
+</a>
+{{>layouts/footer}}

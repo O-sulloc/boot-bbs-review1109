@@ -1,5 +1,6 @@
 package com.bbs.review1109.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "article3") //테이블 이륾 지정
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Article {
 
     @Id

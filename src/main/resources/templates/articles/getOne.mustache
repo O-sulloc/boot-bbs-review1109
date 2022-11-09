@@ -1,5 +1,6 @@
 {{>layouts/header}}
 
+
 <div class="container">
     <h1>getOne page</h1>
 
@@ -9,6 +10,8 @@
             <th scope="col">No</th>
             <th scope="col">Title</th>
             <th scope="col">Contents</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         {{#articles}}
@@ -17,6 +20,12 @@
                 <td>{{id}}</td>
                 <td>{{title}}</td>
                 <td>{{contents}}</td>
+                <td>
+                    <a href="/articles/update/{{articles.id}}" class="btn btn-primary">Update</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger">Delete</a>
+                </td>
             </tr>
             </tbody>
             </tr>
@@ -25,4 +34,8 @@
     </table>
 </div>
 
+
+<a href="/articles/getList">
+    <button type="button" class="btn btn-success">Go List</button>
+</a>
 {{>layouts/footer}}
